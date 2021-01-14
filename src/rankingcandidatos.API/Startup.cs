@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using rankingcandidatos.API.Infra.Dados;
 
 namespace rankingcandidatos.API
 {
@@ -20,13 +18,6 @@ namespace rankingcandidatos.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<RankingCandidatosContext>();
-            optionsBuilder.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection"), 
-                providerOptions => providerOptions.CommandTimeout(60));
-
-            services.AddScoped(_ => new RankingCandidatosContext(optionsBuilder.Options));
-
             services.AddControllers();
         }
 

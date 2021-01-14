@@ -9,6 +9,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "src\docke
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{99BB4390-B191-4401-A4F9-83F092FAB342}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
 		.github\workflows\docker-publish.yml = .github\workflows\docker-publish.yml
 		README.md = README.md
 	EndProjectSection

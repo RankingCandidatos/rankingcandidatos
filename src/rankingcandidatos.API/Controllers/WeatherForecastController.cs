@@ -17,12 +17,10 @@ namespace rankingcandidatos.API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly RankingCandidatosContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, RankingCandidatosContext context)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-            _context = context;
         }
 
         [HttpGet]
