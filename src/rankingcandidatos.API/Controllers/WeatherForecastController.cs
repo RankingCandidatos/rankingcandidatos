@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using rankingcandidatos.API.Dominio;
 using rankingcandidatos.API.Infra.Dados;
 
 namespace rankingcandidatos.API.Controllers
@@ -17,10 +18,17 @@ namespace rankingcandidatos.API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ICandidatoRepositório _candidatoRepositório;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICandidatoRepositório candidatoRepositório)
         {
             _logger = logger;
+            _candidatoRepositório = candidatoRepositório;
+            _candidatoRepositório.CriarCandidato(new Candidato
+            {
+                Nome = "Lula",
+                Número = 13
+            });
         }
 
         [HttpGet]
